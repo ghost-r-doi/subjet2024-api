@@ -116,7 +116,7 @@ def Predict(cimg:Image.Image,
         nn.Dropout(p=0.2, inplace=True),
         nn.Linear(1024, len(labels_cols)),
     )
-    net.load_state_dict(torch.load(fn))
+    net.load_state_dict(torch.load(fn,map_location=torch.device('cpu')))
     
     #zimage = Image.open('sample.png')
     
